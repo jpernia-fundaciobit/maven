@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  ANTONI NADAL = FUNDACIOBIT -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>   
+
+  <parent>
+    <groupId>es.caib.digital.es_caib_digital</groupId>
+    <artifactId>es_caib_digital_parent</artifactId>
+    <version>1.0</version>
+    <relativePath>../es_caib_digital_parent/pom.xml</relativePath>
+  </parent>
+
+  <artifactId>es_caib_digital_ws_api</artifactId>
+  <packaging>jar</packaging>
+  <name>es_caib_digital_ws_api</name>
+  <description>API de Cliente WS</description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- JBoss dependency versions -->  
+    <version.org.jboss.spec.jboss.javaee.6.0>3.0.0.Final</version.org.jboss.spec.jboss.javaee.6.0>  
+  </properties>
+
+  <dependencyManagement>  
+    <dependencies>
+      <dependency>
+        <groupId>org.jboss.spec</groupId>
+        <artifactId>jboss-javaee-6.0</artifactId>
+        <version>${version.org.jboss.spec.jboss.javaee.6.0}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>  
+  </dependencyManagement> 
+
+  <repositories>
+    <repository>
+      <id>java.net-m2</id>
+      <name>java.net - Maven 2</name>
+      <url>https://repository.jboss.org/nexus/content/repositories/java.net-m2</url>
+    </repository>
+
+  </repositories>
+
+  <build>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <!-- 
+        <version>2.5.1</version>
+         -->
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <!-- 
+        <version>2.8</version>
+         -->
+      </plugin>
+      
+    </plugins>
+
+  </build>
+
+
+
+  <profiles>
+    <profile>
+      <id>regenerateapi</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+        <property>				    
+          <name>regenerateapi</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+
+          <plugin>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-java2ws-plugin</artifactId>
+            <version>${cxf.version}</version>
+            <dependencies>
+              <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-frontend-jaxws</artifactId>
+                <version>${cxf.version}</version>
+              </dependency>
+
+              <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-frontend-simple</artifactId>
+                <version>${cxf.version}</version>
+              </dependency>
+              
+              <dependency>
+                <artifactId>es_caib_digital_ws</artifactId>
+                <groupId>es.caib.digital.es_caib_digital</groupId>
+                <version>1.0</version>
+                <type>jar</type>
+                <scope>compile</scope>
+              </dependency>
+            </dependencies>
+
+            <executions>
+
+              <execution>
+                <id>generate-wsdl-ServicioCopiaAutentica</id>
+                <phase>generate-sources</phase>
+                <configuration>
+                  <className>es.caib.digital.ws.service.impl.CopiaAutenticaWSServiceImpl</className>
+                  <genWsdl>true</genWsdl>							
+                  <verbose>true</verbose>
+                  <outputFile>${basedir}/src/main/resources/wsdl/ServicioCopiaAutentica.wsdl</outputFile>
+                  <argline>-s ${basedir}/code -portname CopiaAutenticaWSServiceImplWs -address http://localhost:8080/digital/ws/ServicioCopiaAutentica</argline>
+                </configuration>
+                <goals>
+                  <goal>java2ws</goal>
+                </goals>
+              </execution>
+              
+              <execution>
+                <id>generate-wsdl-Entidades</id>
+                <phase>generate-sources</phase>
+                <configuration>
+                  <className>es.caib.digital.ws.service.impl.EntidadesWSServiceImpl</className>
+                  <genWsdl>true</genWsdl>							
+                  <verbose>true</verbose>
+                  <outputFile>${basedir}/src/main/resources/wsdl/ServicioEntidades.wsdl</outputFile>
+                  <argline>-s ${basedir}/code -portname EntidadesWSServiceImplWs -address http://localhost:8080/digital/ws/ServicioEntidades</argline>
+                </configuration>
+                <goals>
+                  <goal>java2ws</goal>
+                </goals>
+              </execution>
+              
+              <execution>
+                <id>generate-wsdl-Caratulas</id>
+                <phase>generate-sources</phase>
+                <configuration>
+                  <className>es.caib.digital.ws.service.impl.CaratulasWSServiceImpl</className>
+                  <genWsdl>true</genWsdl>							
+                  <verbose>true</verbose>
+                  <outputFile>${basedir}/src/main/resources/wsdl/ServicioCaratulas.wsdl</outputFile>
+                  <argline>-s ${basedir}/code -portname CaratulasWSServiceImplWs -address http://localhost:8080/digital/ws/ServicioCaratulas</argline>
+                </configuration>
+                <goals>
+                  <goal>java2ws</goal>
+                </goals>
+              </execution>
+
+            </executions>
+          </plugin>
+
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>jaxws-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>generate-reports-ws-code_1</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>wsimport</goal>
+                </goals>
+                <configuration>
+                  <extension>true</extension>
+                  <verbose>true</verbose>  
+                  <packageName>es.caib.digital.ws.api.v1.copiaautentica</packageName>
+                  <wsdlDirectory>${basedir}/src/main/resources/wsdl/</wsdlDirectory>
+                  <wsdlFiles>
+                    <wsdlFile>ServicioCopiaAutentica.wsdl</wsdlFile>
+                  </wsdlFiles>
+                  <wsdlLocation>http://localhost:8080/digital/ws/ServicioCopiaAutentica?wsdl</wsdlLocation>
+                  <verbose>true</verbose>
+                  <sourceDestDir>${project.basedir}/src/main/java</sourceDestDir>
+                </configuration>
+              </execution>
+              <execution>
+                <id>generate-reports-ws-code_2</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>wsimport</goal>
+                </goals>
+                <configuration>
+                  <extension>true</extension>
+                  <verbose>true</verbose>  
+                  <packageName>es.caib.digital.ws.api.v1.entidades</packageName>
+                  <wsdlDirectory>${basedir}/src/main/resources/wsdl/</wsdlDirectory>
+                  <wsdlFiles>
+                    <wsdlFile>ServicioEntidades.wsdl</wsdlFile>
+                  </wsdlFiles>
+                  <wsdlLocation>http://localhost:8080/digital/ws/ServicioEntidades?wsdl</wsdlLocation>
+                  <verbose>true</verbose>
+                  <sourceDestDir>${project.basedir}/src/main/java</sourceDestDir>
+                </configuration>
+              </execution>
+              <execution>
+                <id>generate-reports-ws-code_3</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>wsimport</goal>
+                </goals>
+                <configuration>
+                  <extension>true</extension>
+                  <verbose>true</verbose>  
+                  <packageName>es.caib.digital.ws.api.v1.caratulas</packageName>
+                  <wsdlDirectory>${basedir}/src/main/resources/wsdl/</wsdlDirectory>
+                  <wsdlFiles>
+                     <wsdlFile>ServicioCaratulas.wsdl</wsdlFile>
+                  </wsdlFiles>
+                  <wsdlLocation>http://localhost:8080/digital/ws/ServicioCaratulas?wsdl</wsdlLocation>
+                  <verbose>true</verbose>
+                  <sourceDestDir>${project.basedir}/src/main/java</sourceDestDir>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+
+        </plugins>
+
+      </build>
+    </profile>
+  </profiles>
+
+
+  <dependencies>
+
+    <!-- Només per mantenir un ordre en la compilació -->
+    <!--
+    <dependency>
+      <artifactId>es_caib_digital_ws</artifactId>
+      <groupId>es.caib.digital.es_caib_digital</groupId>
+      <version>1.0</version>
+      <type>jar</type>
+      <scope>provided</scope>
+    </dependency>
+    -->
+
+     <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    
+
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+
+  </dependencies>
+
+</project>
