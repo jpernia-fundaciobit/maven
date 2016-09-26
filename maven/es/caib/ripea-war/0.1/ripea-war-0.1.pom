@@ -110,22 +110,22 @@
 		<dependency>
 			<groupId>org.fundaciobit.plugins</groupId>
 			<artifactId>plugin-signatureweb-api</artifactId>
-			<version>1.0.0</version>
+			<version>2.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.fundaciobit.plugins</groupId>
 			<artifactId>plugin-signatureweb-portafib</artifactId>
-			<version>1.0.0</version>
+			<version>2.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.fundaciobit.plugins</groupId>
 			<artifactId>plugin-signatureweb-miniappletinclient</artifactId>
-			<version>1.0.0</version>
+			<version>2.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.fundaciobit.plugins</groupId>
 			<artifactId>plugin-signatureweb-miniappletinserver</artifactId>
-			<version>1.0.0</version>
+			<version>2.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.webjars.bower</groupId>
@@ -179,6 +179,11 @@
 		</dependency>
 		<dependency>
 			<groupId>org.webjars.bower</groupId>
+			<artifactId>bootstrap-datepicker</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
 			<artifactId>jsrender</artifactId>
 			<version>1.0.0-rc.70</version>
 		</dependency>
@@ -186,6 +191,11 @@
 			<groupId>org.webjars.bower</groupId>
 			<artifactId>jstree</artifactId>
 			<version>3.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>Sortable</artifactId>
+			<version>1.4.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -304,8 +314,10 @@
 								WEB-INF/lib/font-awesome*,
 								WEB-INF/lib/datatables*,
 								WEB-INF/lib/select2*,
+								WEB-INF/lib/bootstrap-datepicker*,
 								WEB-INF/lib/jsrender*,
 								WEB-INF/lib/jstree*
+								WEB-INF/lib/Sortable*
 							</packagingExcludes>
 						</configuration>
 					</plugin>
@@ -393,6 +405,13 @@
 			<id>ettrema-repo</id>
 			<url>http://milton.io/maven</url>
 		</repository>
+        <!-- Requerim API WS de PORTAFIB i PluginsIB -->
+    <repository>
+       <id>github-governib-maven-repos</id>
+       <name>GitHub GovernIB Maven Repository</name>
+       <url>http://GovernIB.github.io/maven/maven/</url>
+    </repository>
+    <!--
 		<repository>
 			<name>PortaFIB Maven repository</name>
 			<id>es.caib.portafib</id>
@@ -403,5 +422,6 @@
 			<id>org.fundaciobit.plugins</id>
 			<url>https://github.com/GovernIB/pluginsib/raw/gh-pages/maven</url>
 		</repository>
+    -->
 	</repositories>
 </project>
