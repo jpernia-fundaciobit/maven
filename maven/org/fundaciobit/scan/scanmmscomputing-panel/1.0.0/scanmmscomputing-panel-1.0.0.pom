@@ -1,0 +1,297 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.fundaciobit.scan</groupId>
+  <artifactId>scanmmscomputing-panel</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+  
+
+  <parent>
+    <groupId>org.fundaciobit.plugins</groupId>
+    <artifactId>plugin-scanweb-mmscomputing</artifactId>
+	<version>1.0.0</version>
+  </parent>
+
+
+  <name>FundacioBit Plugins - Scan Web - MMS Computing - Panel</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <afirma.keytool.keystore>afirma.keystore</afirma.keytool.keystore>
+	<afirma.keytool.alias>codesign</afirma.keytool.alias>
+	<afirma.keytool.password>afirma</afirma.keytool.password>
+  </properties>
+  
+
+  <dependencies>
+  
+    <dependency>
+	  <groupId>gov.nih.imagej</groupId>
+	  <artifactId>imagej</artifactId>
+	  <version>1.46</version>
+	</dependency>
+
+	<dependency>
+		<groupId>uk.co.mmscomputing.device.twain</groupId>
+		<artifactId>scan_mmscomputing</artifactId>
+		<version>1.0.0</version>
+	</dependency>
+	
+	<!--
+		<dependency>
+	    <groupId>org.fundaciobit.plugins</groupId>
+        <artifactId>plugin-scanweb-api</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+	-->
+
+
+  	   <dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-discovery</groupId>
+			<artifactId>commons-discovery</artifactId>
+			<version>0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.8</version>
+		</dependency>
+  
+		<dependency>
+			<groupId>com.lowagie</groupId>
+			<artifactId>itext</artifactId>
+			<version>2.1.7</version>
+			<exclusions>
+				<exclusion>  <!-- declare the exclusion here -->
+				<groupId>org.bouncycastle</groupId>
+				<artifactId>bcmail-jdk14</artifactId>
+				</exclusion>
+				<exclusion>  <!-- declare the exclusion here -->
+				<groupId>org.bouncycastle</groupId>
+				<artifactId>bcprov-jdk14</artifactId>
+				</exclusion>
+		  </exclusions> 
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+		    <artifactId>bctsp-jdk14</artifactId>
+			<version>1.38</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+		    <artifactId>bcmail-jdk14</artifactId>
+			<version>1.38</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+		    <artifactId>bcprov-jdk14</artifactId>
+			<version>1.38</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		
+		
+		<!--
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.0.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
+			<version>4.0.1</version>
+		</dependency>
+		
+		<dependency>
+		<groupId>commons-httpclient</groupId>
+		<artifactId>commons-httpclient</artifactId>
+		<version>3.1</version>
+	</dependency>
+	-->
+  
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+	
+  </dependencies>
+  <build>
+  <plugins>
+  
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+  
+         <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>2.2-beta-5</version>
+            <configuration>
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+				<descriptors>
+                        <descriptor>assembly.xml</descriptor>
+                    </descriptors>
+                <archive>
+                    <index>true</index>
+                    <manifest>
+                        <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                    </manifest>
+                </archive>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>make-my-applet-jar</id>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>single</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+		
+		
+		
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-jar-plugin</artifactId>
+			<version>2.4</version>
+			<executions>
+			  <execution>
+				<goals>
+				  <goal>sign</goal>
+				</goals>
+			  </execution>
+			</executions>
+			<configuration>
+			  <jarPath>${project.build.directory}/${project.build.FinalName}-${project.packaging}-with-dependencies.${project.packaging}</jarPath>
+			  <keystore>${afirma.keytool.keystore}</keystore>
+			  <alias>${afirma.keytool.alias}</alias>
+			  <storepass>${afirma.keytool.password}</storepass>
+			  <signedjar>target/${project.build.finalName}-signed.jar</signedjar>
+			  <verify>true</verify>
+			  <!--
+			  <inputDirectory>${basedir}\web</inputDirectory>
+			  <outputDirectory>${basedir}\web</outputDirectory>
+			  -->
+			  <archive>
+					<manifestEntries>
+					  <Implementation-Title>org.fundaciobit.scanweb</Implementation-Title>
+					  <Implementation-Version>${project.version}</Implementation-Version>
+					  <Specification-Vendor>FundacioBit</Specification-Vendor>
+					  <Application-Name>ScanApplet</Application-Name>
+					  <Caller-Allowable-Codebase>*</Caller-Allowable-Codebase>
+					  <Implementation-Vendor>FundacioBit</Implementation-Vendor>
+					  <Application-Library-Allowable-Codebase>*</Application-Library-Allowable-Codebase>
+					  <Name>org.fundaciobit.scanweb</Name>
+					  <Permissions>all-permissions</Permissions>
+					  <Specification-Title>Scan MMS Applet</Specification-Title>
+					  <Specification-Version>${project.version}</Specification-Version>
+					  <Main-Class>org.fundaciobit.scanweb.ScanApplet</Main-Class>
+					  <Codebase>*</Codebase>					  
+					</manifestEntries>
+				</archive>
+			</configuration>
+		  </plugin>
+		  
+		  
+		<plugin>
+		  <groupId>org.apache.maven.plugins</groupId>
+		  <artifactId>maven-install-plugin</artifactId>
+		  <version>2.4</version>
+		  <executions>
+			<execution>
+			  <id>installsigned</id>
+			  <phase>install</phase>
+			  <goals>
+				<goal>install-file</goal>
+			  </goals>
+			  <configuration>
+				<file>target/${project.build.finalName}-signed.jar</file>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>${project.artifactId}-signed</artifactId>
+				<version>${project.version}</version>
+				<packaging>jar</packaging>
+			  </configuration>
+			</execution>				
+		  </executions>
+		</plugin>
+		
+		
+		
+		
+		
+		<!--
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jarsigner-plugin</artifactId>
+            <version>1.2</version>
+            <executions>
+                <execution>
+                    <id>sign</id>
+                    <goals>
+                        <goal>sign</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <keystore>keystore</keystore>
+                <alias>keyalias</alias>
+                <storepass>storepass</storepass>
+                <keypass>keypass</keypass>
+            </configuration>
+        </plugin>
+		-->
+  <!--
+  	<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.1</version>
+        <executions>
+          <execution>
+            <id>copy-dependencies</id>
+            <phase>package</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/../web</outputDirectory>
+              <overWriteReleases>false</overWriteReleases>
+              <overWriteSnapshots>false</overWriteSnapshots>
+              <overWriteIfNewer>true</overWriteIfNewer>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+	  -->
+   </plugins>
+  </build>
+  
+</project>

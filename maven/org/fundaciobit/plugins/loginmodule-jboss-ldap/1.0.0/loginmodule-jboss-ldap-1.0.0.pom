@@ -1,0 +1,35 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.fundaciobit.plugins</groupId>
+  <artifactId>loginmodule-jboss-ldap</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0.0</version>
+
+  <name>FundacioBit LoginModule-Jboss - LDAP</name>
+
+  <parent>
+    <groupId>org.fundaciobit.plugins</groupId>
+    <version>1.0.0</version>
+    <artifactId>loginmodule-jboss</artifactId>
+  </parent>
+
+  <dependencies>
+	
+    <dependency>
+	  <groupId>org.fundaciobit.plugins</groupId>
+      <artifactId>plugins-utils-ldap</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+	
+
+  
+	<dependency>
+		<groupId>org.jboss.security</groupId>
+		<artifactId>jbosssx</artifactId>
+		<version>2.0.4.SP7</version>
+		<scope>provided</scope>
+	</dependency>
+	
+  </dependencies>
+</project>
