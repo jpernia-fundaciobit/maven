@@ -110,6 +110,11 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
+			<groupId>es.caib.portafib</groupId>
+			<artifactId>portafib-ws-callback-api</artifactId>
+			<version>${portafib.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.9</version>
@@ -205,6 +210,19 @@
 			<id>jboss</id>
 			<url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
 		</repository>
+    <!-- Requerim API WS de PORTAFIB -->
+    <repository>
+       <id>github-governib-maven-repos</id>
+       <name>GitHub GovernIB Maven Repository</name>
+       <url>http://GovernIB.github.io/maven/maven/</url>
+    </repository>
+    <!--
+		<repository>
+			<name>PortaFIB Maven repository</name>
+			<id>es.caib.portafib</id>
+			<url>https://github.com/GovernIB/portafib/raw/gh-pages/maven</url>
+		</repository>
+    -->
 		<!--repository>
 			<id>archiva.default</id>
 			<url>http://gforge.caib.es/archiva/repository/internal</url>
