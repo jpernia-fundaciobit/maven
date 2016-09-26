@@ -49,6 +49,17 @@
 			</exclusions>
 		</dependency>
 		<dependency>
+			<groupId>com.artofsolving</groupId>
+			<artifactId>jodconverter</artifactId>
+			<version>2.2.1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
 			<groupId>axis</groupId>
 			<artifactId>axis</artifactId>
 			<version>1.4</version>
@@ -79,17 +90,17 @@
   		<dependency>
 			<groupId>es.caib.portafib</groupId>
 			<artifactId>portafib-ws-api</artifactId>
-			<version>1.1.0</version>
+			<version>${portafib.version}</version>
 		</dependency>
   		<dependency>
 			<groupId>es.caib.regweb3</groupId>
 			<artifactId>regweb3-ws-api</artifactId>
-			<version>3.0.5</version>
+			<version>${regweb.version}</version>
 		</dependency>
   		<dependency>
 			<groupId>es.caib.dir3caib</groupId>
 			<artifactId>dir3caib-ws-api</artifactId>
-			<version>1.0.3</version>
+			<version>${dir3caib.version}</version>
 		</dependency>
   		<dependency>
 			<groupId>es.caib</groupId>
@@ -161,6 +172,9 @@
 								<wsdlUrl>${basedir}/wsdl/sistra-zonaper/BackofficeFacade.wsdl</wsdlUrl>
 								<wsdlUrl>${basedir}/wsdl/sistra-regtel/BackofficeFacade.wsdl</wsdlUrl>
 							</wsdlUrls>
+							<vmArgs>
+								<vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+							</vmArgs>
 							<verbose>true</verbose>
 							<sourceDestDir>${basedir}/src/main/java</sourceDestDir>
 						</configuration>
@@ -186,6 +200,13 @@
 		</plugins>
 	</build>
 	<repositories>
+    <!-- Requerim API WS de PORTAFIB, API WS de REGWEB3 i API WS de DIR3CAIB -->
+    <repository>
+       <id>github-governib-maven-repos</id>
+       <name>GitHub GovernIB Maven Repository</name>
+       <url>http://GovernIB.github.io/maven/maven/</url>
+    </repository>
+    <!--
 		<repository>
 			<name>PortaFIB Maven repository</name>
 			<id>es.caib.portafib</id>
@@ -201,6 +222,7 @@
 			<id>es.caib.dir3caib</id>
 			<url>https://github.com/GovernIB/dir3caib/raw/gh-pages/maven</url>
 		</repository>
+    -->
 		<repository>
 			<name>Local Maven repository</name>
 			<id>es.caib.ripea.local</id>
