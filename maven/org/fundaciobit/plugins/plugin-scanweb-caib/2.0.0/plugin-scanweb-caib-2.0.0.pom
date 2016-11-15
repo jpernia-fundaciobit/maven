@@ -14,22 +14,6 @@
     <artifactId>plugins-scanweb</artifactId>
   </parent>
 
-  <repositories>
-    <repository>
-      <id>maven-repos</id>
-      <name>GitHub GovernIB Maven Repository</name>
-      <url>http://GovernIB.github.io/maven/maven/</url>
-    </repository>
-
-    <!--
-    <repository>
-      <id>plugins.scanweb.caib</id>
-      <name>Local Maven Repository</name>
-      <url>file://${project.basedir}/local-repo</url>
-    </repository>
-    -->
-  </repositories>
-
   <dependencies>
 
     <dependency>
