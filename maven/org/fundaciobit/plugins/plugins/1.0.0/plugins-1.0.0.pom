@@ -10,15 +10,16 @@
   <modules>    
     <module>plugins-api</module>
     <module>plugins-utils</module>
-    <module>plugins-certificate</module>
-    <module>plugins-userinformation</module>
-    <module>plugins-documentconverter</module>
     <module>plugins-barcode</module>
+    <module>plugins-certificate</module>
+    <module>plugins-csvgenerator</module>
+    <module>plugins-documentconverter</module>
     <module>plugins-documentcustody</module>
     <module>plugins-exportdata</module>
-    <module>plugins-timestamp</module>
-    <module>plugins-scanweb</module>
     <module>plugins-paymentweb</module>
+    <module>plugins-scanweb</module>
+    <module>plugins-timestamp</module>
+    <module>plugins-userinformation</module>
     <module>loginmodule-jboss</module>
   </modules>
 
@@ -38,7 +39,7 @@
       </snapshots>
     </repository>
 
-     <!-- REQUERUIM  MMS Computing & Alfresco  -->
+     <!-- REQUERIM  MMS Computing & Alfresco  -->
      <repository>
        <id>github-governib-maven-repos</id>
        <name>GitHub GovernIB Maven Repository</name>
