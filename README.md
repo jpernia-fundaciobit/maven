@@ -23,8 +23,8 @@ Tot projecte CAIB, desenvolupat en maven al final del pom.xml ha d'incloue aques
       ...
     
       <plugin>
-        <artifactId>maven-deploy-plugin</artifactId>`
-        <version>2.8.1</version>`
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>2.8.1</version>
         <configuration>
           <altDeploymentRepository>
             internal.repo::default::file://${project.build.directory}/mvn-repo
