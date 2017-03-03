@@ -243,51 +243,5 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<project.build.jdk>1.7</project.build.jdk>
 	</properties>
-	<!-- Repositorios de artefactos -->
-	<repositories>
-		<repository>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<id>MINHAP-central</id>
-			<name>libs-release</name>
-			<url>https://artefactos.scae.redsara.es/artifactory/libs-release</url>
-		</repository>
-		<repository>
-			<snapshots />
-			<id>MINHAP-snapshots</id>
-			<name>libs-snapshot</name>
-			<url>https://artefactos.scae.redsara.es/artifactory/libs-snapshot</url>
-		</repository>
-	</repositories>
-	<!-- Repositorios de plugins -->
-	<pluginRepositories>
-		<pluginRepository>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<id>MINHAP-central</id>
-			<name>plugins-release</name>
-			<url>https://artefactos.scae.redsara.es/artifactory/plugins-release</url>
-		</pluginRepository>
-		<pluginRepository>
-			<snapshots />
-			<id>MINHAP-snapshots</id>
-			<name>plugins-snapshot</name>
-			<url>https://artefactos.scae.redsara.es/artifactory/plugins-snapshot</url>
-		</pluginRepository>
-	</pluginRepositories>
-	<!-- Repositorios para distribuir artefactos -->
-	<distributionManagement>
-		<repository>
-			<id>MINHAP-central</id>
-			<name>artefactos.scae.redsara.es-releases</name>
-			<url>https://artefactos.scae.redsara.es/artifactory/INTEGRA-release/</url>
-		</repository>
-		<snapshotRepository>
-			<id>MINHAP-snapshots</id>
-			<name>artefactos.scae.redsara.es-snapshots</name>
-			<url>https://artefactos.scae.redsara.es/artifactory/INTEGRA-snapshot/</url>
-		</snapshotRepository>
-	</distributionManagement>
+
 </project>
