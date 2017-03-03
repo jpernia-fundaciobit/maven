@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>es.gob.afirma</groupId>
+  <artifactId>afirma-crypto-core-pkcs7</artifactId>
+  <version>3.3.2-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20160223.195247</timestamp>
+      <buildNumber>445</buildNumber>
+    </snapshot>
+    <lastUpdated>20160223195247</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>3.3.2-20160223.195247-445</value>
+        <updated>20160223195247</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>3.3.2-20160223.195247-445</value>
+        <updated>20160223195247</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>

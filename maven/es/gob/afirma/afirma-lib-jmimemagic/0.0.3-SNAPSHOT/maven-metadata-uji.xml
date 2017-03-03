@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>es.gob.afirma</groupId>
+  <artifactId>afirma-lib-jmimemagic</artifactId>
+  <version>0.0.3-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20160223.143312</timestamp>
+      <buildNumber>21</buildNumber>
+    </snapshot>
+    <lastUpdated>20160223143312</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>0.0.3-20160223.143312-21</value>
+        <updated>20160223143312</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>0.0.3-20160223.143312-21</value>
+        <updated>20160223143312</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
