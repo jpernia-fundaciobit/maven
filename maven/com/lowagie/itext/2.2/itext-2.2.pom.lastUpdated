@@ -1,0 +1,12 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Fri Mar 03 13:41:07 CET 2017
+https\://maven.nuxeo.org/nexus/content/groups/public/.lastUpdated=1488544825056
+@default-MINHAP-snapshots-https\://artefactos.scae.redsara.es/artifactory/libs-snapshot/.lastUpdated=1488544867512
+https\://artefactos.scae.redsara.es/artifactory/libs-snapshot/.error=Could not transfer artifact com.lowagie\:itext\:pom\:2.2 from/to MINHAP-snapshots (https\://artefactos.scae.redsara.es/artifactory/libs-snapshot)\: Connect to artefactos.scae.redsara.es\:443 [artefactos.scae.redsara.es/10.253.113.73] failed\: Connection timed out\: connect
+https\://repo.maven.apache.org/maven2/.lastUpdated=1488544825497
+http\://GovernIB.github.io/maven/maven/.error=
+https\://maven.nuxeo.org/nexus/content/groups/public/.error=
+https\://repo.maven.apache.org/maven2/.error=
+@default-MINHAP-central-https\://artefactos.scae.redsara.es/artifactory/libs-release/.lastUpdated=1488544846504
+https\://artefactos.scae.redsara.es/artifactory/libs-release/.error=Could not transfer artifact com.lowagie\:itext\:pom\:2.2 from/to MINHAP-central (https\://artefactos.scae.redsara.es/artifactory/libs-release)\: Connect to artefactos.scae.redsara.es\:443 [artefactos.scae.redsara.es/10.253.113.73] failed\: Connection timed out\: connect
+http\://GovernIB.github.io/maven/maven/.lastUpdated=1488544825329
