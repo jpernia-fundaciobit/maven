@@ -12,13 +12,18 @@
     <version>1.0.0</version>
     <artifactId>plugins</artifactId>
   </parent>
+  
+  <properties>
+    <documentcustody.api.version>3.0.0</documentcustody.api.version>
+    <scanweb.api.version>2.0.3</scanweb.api.version>
+  </properties>
 
   <modules>
     <module>api</module>
     <module>dynamicwebtwain</module>
     <module>mmscomputing</module>
     <module>iecisascanweb</module>
-    <!-- API 2.0.0 -->
+    <!-- API 2.0.3 -->
     <module>api2</module>
     <module>iecisa2-scanweb-plugin</module>
     <module>caib-scanweb-plugin</module>
