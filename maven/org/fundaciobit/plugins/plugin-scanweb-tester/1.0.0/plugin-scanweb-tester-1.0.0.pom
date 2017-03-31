@@ -12,7 +12,7 @@
       <artifactId>plugins-scanweb</artifactId>
       <version>1.0.0</version>
     </parent>
-
+    
     <modules>
         <module>scanweb-ejb</module>
         <module>scanweb-war</module>
