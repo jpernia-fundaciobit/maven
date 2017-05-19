@@ -19,6 +19,17 @@
     <module>fake</module>
   </modules>
 
+  <profiles>
+    <profile>
+      <activation>
+        <jdk>[1.7,)</jdk>
+      </activation>
+      <modules>
+        <module>integra</module>
+      </modules>
+    </profile>
+  </profiles>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>

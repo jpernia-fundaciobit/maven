@@ -57,7 +57,7 @@
       <artifactId>cxf-rt-ws-security</artifactId>
       <version>${cxf.version}</version>
       <scope>provided</scope>
-      
+
       <exclusions>
         <exclusion>  
           <groupId>org.bouncycastle</groupId>
@@ -101,91 +101,50 @@
           <groupId>org.apache.axis</groupId>
           <artifactId>axis-saaj</artifactId>
         </exclusion>
+
         <exclusion>  
           <groupId>org.apache.santuario</groupId>
           <artifactId>xmlsec</artifactId>
         </exclusion>
-        
-        <!--
-        
+
         <exclusion>  
-          <groupId>org.bouncycastle</groupId>
-          <artifactId>bcprov-jdk16</artifactId>
+          <groupId>com.sun.xml.wss</groupId>
+          <artifactId>xws-security</artifactId>
         </exclusion>
-        <exclusion>  
-          <groupId>org.bouncycastle</groupId>
-          <artifactId>bcmail-jdk16</artifactId>
-        </exclusion>
-        <exclusion>  
-          <groupId>org.bouncycastle</groupId>
-          <artifactId>bctsp-jdk16</artifactId>
-        </exclusion>
-        
-        -->
-        
-      </exclusions> 
+
+      </exclusions>
 
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.opensaml/xmltooling      -->
+
     <dependency>
       <groupId>org.opensaml</groupId>
       <artifactId>xmltooling</artifactId>
       <version>1.3.1</version>
+
+
+
     </dependency>
+
 
     <!--  Provoca un error durant la cridada CXF -->
     <!--
     <dependency>
-    <groupId>org.apache.santuario</groupId>
-    <artifactId>xmlsec</artifactId>
-    <version>1.5.0</version>
-</dependency>
+      <groupId>org.apache.santuario</groupId>
+      <artifactId>xmlsec</artifactId>
+      <version>1.5.0</version>
+    </dependency>
    -->
-    
-    <!--
-    <dependency>
-			<groupId>org.apache.santuario</groupId>
-			<artifactId>xmlsec</artifactId>
-			<version>1.5.0</version>
-		</dependency>
-    -->
-    
-    <!--
-    
-    <dependency>
-      <groupId>org.bouncycastle</groupId>
-      <artifactId>bcprov-jdk15</artifactId>
-      <version>1.43</version>
-    </dependency>
-    
-    <dependency>
-      <groupId>org.bouncycastle</groupId>
-      <artifactId>bcmail-jdk15</artifactId>
-      <version>1.43</version>
-    </dependency>
-    
-    
-    <dependency>
-      <groupId>org.bouncycastle</groupId>
-      <artifactId>bctsp-jdk15</artifactId>
-      <version>1.43</version>
-    </dependency>
-    
-    -->
-    
 
     <dependency>
-			<!-- reuse src/test/java code from plugin-validatesignature-api  -->
+      <!-- reuse src/test/java code from plugin-validatesignature-api  -->
       <groupId>org.fundaciobit.plugins</groupId>
       <artifactId>plugin-validatesignature-api</artifactId>
       <version>1.0.0</version>
-			<scope>test</scope>
-			<classifier>tests</classifier>
-		</dependency>
-    
-    
-
+      <scope>test</scope>
+      <classifier>tests</classifier>
+    </dependency>
 
   </dependencies>
 
