@@ -11,8 +11,8 @@
 		<ripea.version>0.1</ripea.version>
 		<github.global.server>github</github.global.server>
 		<!--spring.version>4.2.5.RELEASE</spring.version>
-		<spring-security.version>4.0.4.RELEASE</spring-security.version>
-		<spring-data-jpa.version>1.9.4.RELEASE</spring-data-jpa.version-->
+		<spring-security.version>4.0.4.RELEASE</spring-security.version> 
+		<spring-data-jpa.version>1.9.4.RELEASE</spring-data-jpa.version -->
 		<spring.version>3.2.16.RELEASE</spring.version>
 		<spring-security.version>3.2.9.RELEASE</spring-security.version>
 		<spring-data-jpa.version>1.6.6.RELEASE</spring-data-jpa.version>
@@ -56,11 +56,11 @@
 					<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
 					<noJekyll>true</noJekyll>
 					<branch>refs/heads/gh-pages</branch>
-					<includes><include>**/*</include></includes>
+					<includes>
+						<include>**/*</include>
+					</includes>
 					<path>maven</path>
-          <!-- github repo name -->
 					<repositoryName>maven</repositoryName>
-          <!-- github username or organization  -->
 					<repositoryOwner>GovernIB</repositoryOwner>
 					<server>github_governib_maven</server>
 					<merge>true</merge>
@@ -77,22 +77,21 @@
 			</plugin>
 		</plugins>
 	</build>
-  <distributionManagement>
-    <repository>
-      <id>github_governib_maven</id>
-      <name>GitHub GovernIB Maven Repository</name>
-      <url>file://${project.build.directory}/mvn-repo</url>
-    </repository>
-  </distributionManagement>
-  
-  <!--   COM UTILITZAR: AFEGIR AQUEST CODI AL pom.xml    -->
-  <!--
-        <repositories>
-           <repository>
-             <id>github-governib-maven-repos</id>
-             <name>GitHub GovernIB Maven Repository</name>
-             <url>http://GovernIB.github.io/maven/maven/</url>
-           </repository>
-        </repositories>
-  -->
+	<distributionManagement>
+		<repository>
+			<id>github_governib_maven</id>
+			<name>GitHub GovernIB Maven Repository</name>
+			<url>file://${project.build.directory}/mvn-repo</url>
+		</repository>
+	</distributionManagement>
+	<!-- COM UTILITZAR: AFEGIR AQUEST CODI AL pom.xml -->
+	<!--
+	<repositories>
+		<repository>
+			<id>github-governib-maven-repos</id>
+			<name>GitHub GovernIB Maven Repository</name>
+			<url>http://GovernIB.github.io/maven/maven/</url> 
+		</repository>
+	</repositories>
+	-->
 </project>
