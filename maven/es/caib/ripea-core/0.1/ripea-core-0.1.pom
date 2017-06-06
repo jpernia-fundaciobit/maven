@@ -9,29 +9,6 @@
 	<artifactId>ripea-core</artifactId>
 	<packaging>ejb</packaging>
 	<dependencies>
-		<!--dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-jpa</artifactId>
-			<version>${spring-data-jpa.version}</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>jcl-over-slf4j</artifactId>
-					<groupId>org.slf4j</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>slf4j-api</artifactId>
-					<groupId>org.slf4j</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-beans</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-core</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency-->
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
@@ -115,6 +92,16 @@
 			<version>${portafib.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>org.jopendocument</groupId>
+			<artifactId>jOpenDocument</artifactId>
+			<version>1.3</version>
+		</dependency>
+		<dependency>
+			<groupId>es.caib.arxiudigital</groupId>
+			<artifactId>arxiudigital-apirest</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.9</version>
@@ -145,6 +132,12 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>1.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>dumbster</groupId>
 			<artifactId>dumbster</artifactId>
 			<version>1.6</version>
@@ -152,9 +145,26 @@
 		</dependency>
 		<dependency>
 			<groupId>es.caib</groupId>
+			<artifactId>ripea-plugin-impl</artifactId>
+			<version>${ripea.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>es.caib</groupId>
 			<artifactId>ripea-lib-common</artifactId>
 			<version>${ripea.version}</version>
 			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>axis</groupId>
+			<artifactId>axis</artifactId>
+			<version>1.4</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>axis-jaxrpc</artifactId>
+					<groupId>org.apache.axis</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 	<build>
@@ -210,23 +220,11 @@
 			<id>jboss</id>
 			<url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
 		</repository>
-    <!-- Requerim API WS de PORTAFIB -->
-    <repository>
-       <id>github-governib-maven-repos</id>
-       <name>GitHub GovernIB Maven Repository</name>
-       <url>http://GovernIB.github.io/maven/maven/</url>
-    </repository>
-    <!--
-		<repository>
-			<name>PortaFIB Maven repository</name>
-			<id>es.caib.portafib</id>
-			<url>https://github.com/GovernIB/portafib/raw/gh-pages/maven</url>
-		</repository>
-    -->
-		<!--repository>
-			<id>archiva.default</id>
-			<url>http://gforge.caib.es/archiva/repository/internal</url>
-		</repository-->
+	    <repository>
+	       <id>github-governib-maven-repos</id>
+	       <name>GovernIB Maven Repository</name>
+	       <url>http://governib.github.io/maven/maven/</url>
+	    </repository>
 		<repository>
 			<id>mvn-local-repo</id>
 			<url>file://${basedir}/../local-repo</url>
