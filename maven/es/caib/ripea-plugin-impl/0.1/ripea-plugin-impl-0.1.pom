@@ -88,6 +88,11 @@
 			<scope>provided</scope>
   		</dependency>
   		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+  		<dependency>
 			<groupId>es.caib.portafib</groupId>
 			<artifactId>portafib-ws-api</artifactId>
 			<version>${portafib.version}</version>
@@ -142,6 +147,16 @@
 			<version>1.38</version>
 		</dependency>
 		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>es.caib.arxiudigital</groupId>
+			<artifactId>arxiudigital-apirest</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-jcl</artifactId>
 			<version>${slf4j.version}</version>
@@ -151,6 +166,11 @@
 			<groupId>es.caib</groupId>
 			<artifactId>ripea-plugin</artifactId>
 			<version>${ripea.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.10.2</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -200,29 +220,11 @@
 		</plugins>
 	</build>
 	<repositories>
-    <!-- Requerim API WS de PORTAFIB, API WS de REGWEB3 i API WS de DIR3CAIB -->
-    <repository>
-       <id>github-governib-maven-repos</id>
-       <name>GitHub GovernIB Maven Repository</name>
-       <url>http://GovernIB.github.io/maven/maven/</url>
-    </repository>
-    <!--
 		<repository>
-			<name>PortaFIB Maven repository</name>
-			<id>es.caib.portafib</id>
-			<url>https://github.com/GovernIB/portafib/raw/gh-pages/maven</url>
+			<id>github-governib-maven-repos</id>
+			<name>GitHub GovernIB Maven Repository</name>
+			<url>http://GovernIB.github.io/maven/maven/</url>
 		</repository>
-		<repository>
-			<name>Regweb Maven repository</name>
-			<id>es.caib.regweb</id>
-			<url>https://github.com/GovernIB/registre/raw/gh-pages/maven</url>
-		</repository>
-		<repository>
-			<name>Dir3caib Maven repository</name>
-			<id>es.caib.dir3caib</id>
-			<url>https://github.com/GovernIB/dir3caib/raw/gh-pages/maven</url>
-		</repository>
-    -->
 		<repository>
 			<name>Local Maven repository</name>
 			<id>es.caib.ripea.local</id>
