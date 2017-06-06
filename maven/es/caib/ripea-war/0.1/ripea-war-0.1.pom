@@ -17,7 +17,6 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
-			<type>jar</type>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -30,13 +29,11 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.1.2</version>
-			<type>jar</type>
 		</dependency>
 		<dependency>
 			<groupId>taglibs</groupId>
 			<artifactId>standard</artifactId>
 			<version>1.1.2</version>
-			<type>jar</type>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -79,7 +76,6 @@
 			<groupId>opensymphony</groupId>
 			<artifactId>sitemesh</artifactId>
 			<version>2.4.2</version>
-			<type>jar</type>
 		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -128,6 +124,21 @@
 			<version>2.0.0</version>
 		</dependency>
 		<dependency>
+			<groupId>org.fundaciobit.plugins</groupId>
+			<artifactId>plugin-scanweb-api</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.fundaciobit.plugins</groupId>
+			<artifactId>plugin-scanweb-iecisascanweb-plugin</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.fundaciobit.plugins</groupId>
+			<artifactId>plugin-scanweb-dynamicwebtwain</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+		<dependency>
 			<groupId>org.webjars.bower</groupId>
 			<artifactId>jquery</artifactId>
 			<version>1.12.0</version>
@@ -140,7 +151,7 @@
 		<dependency>
 			<groupId>org.webjars.bower</groupId>
 			<artifactId>font-awesome</artifactId>
-			<version>4.5.0</version>
+			<version>4.7.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.webjars.bower</groupId>
@@ -196,6 +207,11 @@
 			<groupId>org.webjars.bower</groupId>
 			<artifactId>Sortable</artifactId>
 			<version>1.4.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>autoNumeric</artifactId>
+			<version>1.9.30</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -405,23 +421,10 @@
 			<id>ettrema-repo</id>
 			<url>http://milton.io/maven</url>
 		</repository>
-        <!-- Requerim API WS de PORTAFIB i PluginsIB -->
-    <repository>
-       <id>github-governib-maven-repos</id>
-       <name>GitHub GovernIB Maven Repository</name>
-       <url>http://GovernIB.github.io/maven/maven/</url>
-    </repository>
-    <!--
 		<repository>
-			<name>PortaFIB Maven repository</name>
-			<id>es.caib.portafib</id>
-			<url>https://github.com/GovernIB/portafib/raw/gh-pages/maven</url>
+			<id>github-governib-maven-repos</id>
+			<name>GitHub GovernIB Maven Repository</name>
+			<url>http://GovernIB.github.io/maven/maven/</url>
 		</repository>
-		<repository>
-			<name>PluginsIB Maven repository</name>
-			<id>org.fundaciobit.plugins</id>
-			<url>https://github.com/GovernIB/pluginsib/raw/gh-pages/maven</url>
-		</repository>
-    -->
 	</repositories>
 </project>
