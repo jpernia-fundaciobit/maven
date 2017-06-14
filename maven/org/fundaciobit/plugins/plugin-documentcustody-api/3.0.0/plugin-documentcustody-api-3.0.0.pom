@@ -35,6 +35,15 @@
 
 
   <build>
+  
+    <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+        <filtering>false</filtering>
+      </testResource>
+    </testResources>
+  
+  
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -53,15 +62,9 @@
         <artifactId>maven-jar-plugin</artifactId>
         <executions>
           <execution>
-            <phase>package</phase>
             <goals>
               <goal>test-jar</goal>
             </goals>
-            <configuration>
-              <includes>
-                <include>**/plugins/documentcustody/api/test/**</include>
-              </includes>
-            </configuration>
           </execution>
         </executions>
       </plugin>
