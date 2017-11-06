@@ -1,0 +1,254 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>es.caib.digital.es_caib_digital</groupId>
+  <artifactId>es_caib_digital</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+  <name>es_caib_digital</name>
+  <description>Modulo de copia autentica</description>
+
+  <organization>
+    <name>IECISA</name>
+    <url>www.iecisa.com</url>
+  </organization>
+
+  <repositories>
+    <repository>
+      <id>central</id>
+      <url>http://repo1.maven.org/maven2</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>itagelib-spring-maven-repos</id>
+      <url>http://registre.sourceforge.net/maven/itaglib-spring</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <!-- Requerim GENAPP i PLUGINSIB -->
+    <repository>
+       <id>github-governib-maven-repos</id>
+       <name>GitHub GovernIB Maven Repository</name>
+       <url>http://GovernIB.github.io/maven/maven/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>maven-nuxeo</id>
+      <url>https://maven.nuxeo.org/nexus/content/groups/public</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>JBoss repository</id>
+      <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+    </repository>
+    <repository>
+      <name>Digital Local Repo</name>
+      <id>es.caib.digital.localrepo</id>
+      <url>file://${project.basedir}/local-repo</url>
+    </repository>
+    <!--        <repository>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Maven Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+        </repository>  -->
+  </repositories>
+
+  <profiles>
+    <profile>
+      <id>binaries</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <modules>
+        <module>es_caib_digital_parent</module>
+        <module>es_caib_digital_test</module>
+        <module>es_caib_digital_td</module>
+        <module>es_caib_digital_content_detection</module>
+        <module>es_caib_digital_docconverter</module>          
+        <module>es_caib_digital_signature</module>
+        <module>es_caib_digital_time</module>
+        <module>es_caib_digital_eni_modules</module>
+        <module>es_caib_digital_core</module>
+        <module>es_caib_digital_user_connector</module>
+        <module>es_caib_digital_audit</module>
+        <module>es_caib_digital_qr</module>
+        <module>es_caib_digital_auditoria</module>
+        <module>es_caib_digital_datos_documento</module>
+        <module>es_caib_digital_csv</module>
+        <module>es_caib_digital_dm</module>
+        <module>es_caib_digital_api</module>
+        <module>es_caib_digital_cover</module>
+        <module>es_caib_digital_document_processor</module>
+        <module>es_caib_digital_web</module>
+        <module>es_caib_digital_ejb</module>
+        <module>es_caib_digital_webapp</module>
+        <module>es_caib_digital_ws</module>
+        <!--  ANTONI NADAL = FUNDACIOBIT -->
+        <module>es_caib_digital_ws_api</module>
+        <!-- FINAL  ANTONI NADAL = FUNDACIOBIT -->
+        <module>es_caib_digital_sql</module>
+        <module>es_caib_digital_configurable</module>
+        <module>es_caib_digital_ear</module>
+      </modules>
+    </profile>
+    
+    <profile>
+      <id>sar</id>
+      <modules>
+        <module>es_caib_digital_sar</module>
+      </modules>
+    </profile>
+    
+
+    <profile>
+      <id>sql</id>
+      <modules>
+        <module>es_caib_digital_parent</module>
+        <module>es_caib_digital_sql</module>
+      </modules>
+    </profile>
+
+    <profile>
+      <id>applet</id>
+      <modules>
+        <module>fwktd-scan-applet</module>
+        <module>fwktd-sendFiles-applet</module>
+      </modules>
+    </profile>
+
+  </profiles>
+
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>2.8.1</version>
+        <configuration>
+          <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>com.github.github</groupId>
+        <artifactId>site-maven-plugin</artifactId>
+        <version>0.12</version> 
+        <configuration>
+          <!-- git commit message -->
+          <message>Maven artifacts for ${project.version}</message> 
+          <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> 
+          <noJekyll>true</noJekyll>   
+          <!-- remote branch name -->
+          <branch>refs/heads/gh-pages</branch> 
+          <includes>
+            <include>**/*</include>
+          </includes>
+          <path>maven</path>
+          <!-- github repo name -->
+          <repositoryName>maven</repositoryName>      
+          <!-- github username or organization  -->
+          <repositoryOwner>GovernIB</repositoryOwner>    
+          <server>github_governib_maven</server>
+          <merge>true</merge>
+          <dryRun>false</dryRun>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>site</goal>
+            </goals>
+            <phase>deploy</phase>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+ 
+    <!--  XMAS -->
+   <pluginManagement>
+      <plugins>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <source>1.6</source>
+            <target>1.6</target>
+            <encoding>UTF-8</encoding>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <configuration>
+            <encoding>UTF-8</encoding>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-idea-plugin</artifactId>
+          <configuration>
+            <jdkName>JDK1.5</jdkName>
+            <downloadSources>true</downloadSources>
+            <downloadJavadocs>true</downloadJavadocs>
+          </configuration>
+        </plugin>
+
+      </plugins>
+    </pluginManagement>
+  </build>
+  
+
+  <distributionManagement>
+    <repository>
+      <id>github_governib_maven</id>
+      <name>GitHub GovernIB Maven Repository</name>
+      <url>file://${project.build.directory}/mvn-repo</url>
+    </repository>
+  </distributionManagement>
+  
+  <!--   COM UTILITZAR: AFEGIR AQUEST CODI AL pom.xml    -->
+  <!--
+        <repositories>
+           <repository>
+             <id>github-governib-maven-repos</id>
+             <name>GitHub GovernIB Maven Repository</name>
+             <url>http://GovernIB.github.io/maven/maven/</url>
+           </repository>
+        </repositories>
+  -->
+
+</project>

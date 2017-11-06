@@ -57,7 +57,7 @@
           <target>1.6</target>
         </configuration>
       </plugin>
-      
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
@@ -65,7 +65,7 @@
         <version>2.8</version>
          -->
       </plugin>
-      
+
     </plugins>
 
   </build>
@@ -85,6 +85,38 @@
         <plugins>
 
           <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>2.3</version>
+            <executions>
+              <execution>
+                <phase>validate</phase>
+                <goals>
+                  <goal>copy</goal>
+                </goals>
+                <configuration>
+                  <outputDirectory>${project.build.directory}/endorsed</outputDirectory>
+                  <silent>true</silent>
+                  <artifactItems>
+                    <artifactItem>
+                      <groupId>javax.xml.bind</groupId>
+                      <artifactId>jaxb-api</artifactId>
+                      <version>2.2.7</version>
+                      <type>jar</type>
+                    </artifactItem>
+                    <artifactItem>
+                      <groupId>javax.xml.ws</groupId>
+                      <artifactId>jaxws-api</artifactId>
+                      <version>2.2.9</version>
+                      <type>jar</type>
+                    </artifactItem>
+                  </artifactItems>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+
+          <plugin>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-java2ws-plugin</artifactId>
             <version>${cxf.version}</version>
@@ -100,7 +132,7 @@
                 <artifactId>cxf-rt-frontend-simple</artifactId>
                 <version>${cxf.version}</version>
               </dependency>
-              
+
               <dependency>
                 <artifactId>es_caib_digital_ws</artifactId>
                 <groupId>es.caib.digital.es_caib_digital</groupId>
@@ -126,7 +158,7 @@
                   <goal>java2ws</goal>
                 </goals>
               </execution>
-              
+
               <execution>
                 <id>generate-wsdl-Entidades</id>
                 <phase>generate-sources</phase>
@@ -141,7 +173,7 @@
                   <goal>java2ws</goal>
                 </goals>
               </execution>
-              
+
               <execution>
                 <id>generate-wsdl-Caratulas</id>
                 <phase>generate-sources</phase>
@@ -159,11 +191,113 @@
 
             </executions>
           </plugin>
+          
+          
+          <plugin>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-codegen-plugin</artifactId>
+            <version>${cxf.version}</version>
+            <executions>
+                <execution>
+                    <id>generate-sources</id>
+                    <phase>generate-sources</phase>
+                    <configuration>
+                         <sourceRoot>${basedir}/src/main/java</sourceRoot>
+                        <wsdlOptions>
+                            <wsdlOption>
+                                <wsdl>${basedir}/src/main/resources/wsdl/ServicioCopiaAutentica.wsdl</wsdl>
+                               
+                                <bindingFiles>
+                                  <bindingFile>${basedir}/bindings/bindings.xml</bindingFile>
+                                </bindingFiles>
+                              
+                                <extraargs>
+                                    <extraarg>-client</extraarg> 
+                                    <extraarg>-verbose</extraarg>
+                                    <extraarg>-p</extraarg>
+                                    <extraarg>es.caib.digital.ws.api.v1.copiaautentica</extraarg>
+                                    
+                                </extraargs>
+
+                            </wsdlOption>
+                            <wsdlOption>
+                                <wsdl>${basedir}/src/main/resources/wsdl/ServicioEntidades.wsdl</wsdl>
+                               
+                                <bindingFiles>
+                                  <bindingFile>${basedir}/bindings/bindings.xml</bindingFile>
+                                </bindingFiles>
+                              
+                                <extraargs>
+                                    <extraarg>-client</extraarg> 
+                                    <extraarg>-verbose</extraarg>
+                                    <extraarg>-p</extraarg>
+                                    <extraarg>es.caib.digital.ws.api.v1.entidades</extraarg>
+                                    
+                                </extraargs>
+
+                            </wsdlOption>
+                            <wsdlOption>
+                                <wsdl>${basedir}/src/main/resources/wsdl/ServicioCaratulas.wsdl</wsdl>
+                               
+                                <bindingFiles>
+                                  <bindingFile>${basedir}/bindings/bindings.xml</bindingFile>
+                                </bindingFiles>
+                              
+                                <extraargs>
+                                    <extraarg>-client</extraarg> 
+                                    <extraarg>-verbose</extraarg>
+                                    <extraarg>-p</extraarg>
+                                    <extraarg>es.caib.digital.ws.api.v1.caratulas</extraarg>
+                                    
+                                </extraargs>
+
+                            </wsdlOption>
+                        </wsdlOptions>
+                    </configuration>
+                    <goals>
+                        <goal>wsdl2java</goal>
+                    </goals>
+                </execution>
+            </executions>
+          </plugin>
+          
+          <plugin>
+            <artifactId>maven-clean-plugin</artifactId>
+            <version>2.2</version>
+            <executions>
+              <execution>
+                <id>auto-clean</id>
+                <phase>process-sources</phase>
+                <goals>
+                  <goal>clean</goal>
+                </goals>
+                <configuration>
+                  <filesets>
+                    <fileset>
+                      <directory>${basedir}/src/main/java/es/caib/digital/ws/service</directory>
+                      <includes>
+                        <include>**/*</include>
+                      </includes>
+                    </fileset>
+                    <fileset>
+                      <directory>${basedir}/src/main/java/es/caib/digital/ws/</directory>
+                      <includes>
+                        <include>service</include>
+                      </includes>
+                    </fileset>
+                   </filesets>
+                 </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          
+          <!--
 
           <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>jaxws-maven-plugin</artifactId>
             <executions>
+              
               <execution>
                 <id>generate-reports-ws-code_1</id>
                 <phase>generate-sources</phase>
@@ -183,6 +317,7 @@
                   <sourceDestDir>${project.basedir}/src/main/java</sourceDestDir>
                 </configuration>
               </execution>
+              
               <execution>
                 <id>generate-reports-ws-code_2</id>
                 <phase>generate-sources</phase>
@@ -214,7 +349,7 @@
                   <packageName>es.caib.digital.ws.api.v1.caratulas</packageName>
                   <wsdlDirectory>${basedir}/src/main/resources/wsdl/</wsdlDirectory>
                   <wsdlFiles>
-                     <wsdlFile>ServicioCaratulas.wsdl</wsdlFile>
+                    <wsdlFile>ServicioCaratulas.wsdl</wsdlFile>
                   </wsdlFiles>
                   <wsdlLocation>http://localhost:8080/digital/ws/ServicioCaratulas?wsdl</wsdlLocation>
                   <verbose>true</verbose>
@@ -223,7 +358,8 @@
               </execution>
             </executions>
           </plugin>
-
+-->
+          
         </plugins>
 
       </build>
@@ -244,7 +380,7 @@
     </dependency>
     -->
 
-     <dependency>
+    <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
       <scope>provided</scope>
@@ -255,7 +391,7 @@
       <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
-    
+
 
     <dependency>
       <groupId>commons-io</groupId>
