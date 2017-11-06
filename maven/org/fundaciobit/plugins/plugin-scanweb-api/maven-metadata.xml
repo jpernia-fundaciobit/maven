@@ -3,10 +3,10 @@
   <groupId>org.fundaciobit.plugins</groupId>
   <artifactId>plugin-scanweb-api</artifactId>
   <versioning>
-    <release>2.0.3</release>
+    <release>1.0.0</release>
     <versions>
-      <version>2.0.3</version>
+      <version>1.0.0</version>
     </versions>
-    <lastUpdated>20170330115847</lastUpdated>
+    <lastUpdated>20171106125206</lastUpdated>
   </versioning>
 </metadata>
