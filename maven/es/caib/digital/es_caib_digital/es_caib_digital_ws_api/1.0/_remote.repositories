@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Tue Feb 21 09:03:46 CET 2017
+es_caib_digital_ws_api-1.0.pom>=
+es_caib_digital_ws_api-1.0.wsdl>=
+es_caib_digital_ws_api-1.0.jar>=
