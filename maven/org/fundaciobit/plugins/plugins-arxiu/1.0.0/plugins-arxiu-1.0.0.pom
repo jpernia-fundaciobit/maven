@@ -1,0 +1,25 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.fundaciobit.plugins</groupId>
+		<artifactId>plugins</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>plugins-arxiu</artifactId>
+	<packaging>pom</packaging>
+	<name>FundacioBit Plugins - Arxiu Plugins</name>
+	<properties>
+		<plugin.arxiu.version>1.0.0</plugin.arxiu.version>
+		<slf4j.version>1.5.11</slf4j.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.7</java.version>
+		<skip.tests>true</skip.tests>
+	</properties>
+	<modules>
+		<module>api</module>
+		<module>caib</module>
+		<module>filesystem</module>
+		<module>plugin-arxiu-client</module>
+	</modules>
+</project>
