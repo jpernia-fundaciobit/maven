@@ -20,6 +20,5 @@
 		<module>api</module>
 		<module>caib</module>
 		<module>filesystem</module>
-		<module>plugin-arxiu-client</module>
 	</modules>
 </project>
