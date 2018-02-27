@@ -29,13 +29,6 @@
       </snapshots>
     </repository>
 
-    <!-- Requerim JXADES -->
-    <repository>
-       <id>uji-repos</id>
-       <name>UJI</name>
-       <url>http://devel.uji.es/nexus/content/groups/public/</url>
-    </repository>
-
   </repositories>
   
   

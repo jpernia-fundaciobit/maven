@@ -50,14 +50,7 @@
 		<module>afirma-server-triphase-signer-document</module>
     -->
 	</modules>
-	
-	<repositories>
-		<repository>
-			<id>uji</id>
-			<url>http://devel.uji.es/nexus/content/groups/public/</url>
-		</repository>
-	</repositories>
-	
+
 	<scm>
 		<connection>scm:git:https://github.com/ctt-gob-es/clienteafirma</connection>
 		<url>https://github.com/ctt-gob-es/clienteafirma</url>
