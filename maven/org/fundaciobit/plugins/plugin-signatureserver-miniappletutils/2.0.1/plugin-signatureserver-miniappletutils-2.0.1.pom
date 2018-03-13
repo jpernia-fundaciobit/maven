@@ -16,15 +16,6 @@
 
   <url>http://maven.apache.org</url>
 
-  <repositories>
-    <repository>
-			<name>Local Maven Repository</name>
-			<id>es.caib.portafib.localrepo</id>
-			<url>file://${basedir}/../../local-repo</url>
-		</repository>
-  </repositories>
-  
-
   <dependencies>
 
     <dependency>
@@ -33,7 +24,6 @@
       <version>${plugins.version}</version>
     </dependency>
 
-   
     <dependency>
       <groupId>org.fundaciobit.plugins</groupId>
       <artifactId>plugin-signatureserver-api</artifactId>
@@ -69,8 +59,6 @@
   </dependencies>
 
 
-
-
   <build>
 
     <plugins>
@@ -81,7 +69,7 @@
         <configuration>
           <source>1.6</source>
           <target>1.6</target>
-          <compilerVersion>1.6</compilerVersion>
+          <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
       

@@ -3,10 +3,10 @@
   <groupId>es.caib.portafib</groupId>
   <artifactId>portafib-logic</artifactId>
   <versioning>
-    <release>1.1.2</release>
+    <release>1.1.4</release>
     <versions>
-      <version>1.1.2</version>
+      <version>1.1.4</version>
     </versions>
-    <lastUpdated>20170221093312</lastUpdated>
+    <lastUpdated>20180312132528</lastUpdated>
   </versioning>
 </metadata>
