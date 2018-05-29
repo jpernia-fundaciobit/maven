@@ -3,11 +3,10 @@
   <groupId>org.fundaciobit.plugins</groupId>
   <artifactId>plugin-documentcustody-arxiudigitalcaib</artifactId>
   <versioning>
-    <release>3.0.12</release>
+    <release>3.0.13</release>
     <versions>
-      <version>3.0.11</version>
-      <version>3.0.12</version>
+      <version>3.0.13</version>
     </versions>
-    <lastUpdated>20180524092138</lastUpdated>
+    <lastUpdated>20180529062805</lastUpdated>
   </versioning>
 </metadata>
