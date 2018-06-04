@@ -6,8 +6,6 @@
   <version>0.1</version>
   <packaging>pom</packaging>
   <properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.7</java.version>
 		<notib.version>0.1</notib.version>
 		<github.global.server>github</github.global.server>
 		<spring.version>3.2.16.RELEASE</spring.version>
@@ -16,18 +14,23 @@
 		<hibernate.version>3.6.5.Final</hibernate.version>
 		<hibernate.validator.version>4.1.0.Final</hibernate.validator.version>
 		<ehcache.version>2.10.1</ehcache.version>
+		<orika.version>1.4.6</orika.version>
 		<jackson.version>2.6.3</jackson.version>
 		<regweb.version>3.0.8</regweb.version>
-		<slf4j.version>1.5.6</slf4j.version>
+		<slf4j.version>1.6.6</slf4j.version>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<modules>
+		<module>notib-client</module>
 		<module>notib-core</module>
 		<module>notib-core-api</module>
+		<module>notib-ear</module>
+		<module>notib-lib-common</module>
 		<module>notib-plugin</module>
 		<module>notib-plugin-impl</module>
 		<module>notib-war</module>
-		<module>notib-ear</module>
-		<module>notib-lib-common</module>
 	</modules>
 	<build>
 		<plugins>
@@ -75,15 +78,4 @@
 			<url>file://${project.build.directory}/mvn-repo</url>
 		</repository>
 	</distributionManagement>
-
-	<!-- COM UTILITZAR: AFEGIR AQUEST CODI AL pom.xml -->
-	<!-- 
-		<repositories> 
-			<repository>
-				<id>github-governib-maven-repos</id> 
-				<name>GitHub GovernIB Maven Repository</name> 
-				<url>http://GovernIB.github.io/maven/maven/</url> 
-				</repository> 
-		</repositories> 
-	-->
 </project>
