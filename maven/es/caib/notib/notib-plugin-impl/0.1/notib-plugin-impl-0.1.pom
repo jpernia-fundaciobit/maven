@@ -78,6 +78,7 @@
 							<wsdlUrls>
 								<wsdlUrl>${basedir}/src/main/resources/es/caib/notib/plugin/wsdl/sistra/zonaper/BackofficeFacade.wsdl</wsdlUrl>
 								<wsdlUrl>${basedir}/src/main/resources/es/caib/notib/plugin/wsdl/sistra/regtel/BackofficeFacade.wsdl</wsdlUrl>
+								<wsdlUrl>${basedir}/src/main/resources/es/caib/notib/plugin/wsdl/sistra/redose/BackofficeFacade.wsdl</wsdlUrl>
 							</wsdlUrls>
 							<vmArgs>
 								<vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
