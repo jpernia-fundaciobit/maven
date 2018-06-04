@@ -55,6 +55,11 @@
 			<artifactId>notib-plugin</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>notib-core-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -69,8 +74,8 @@
 							<goal>wsimport</goal>
 						</goals>
 						<configuration>
+							<sourceDestDir>${basedir}/src/main/java</sourceDestDir>
 							<wsdlUrls>
-								<wsdlUrl>${basedir}/src/main/resources/es/caib/notib/plugin/wsdl/dir3caib/Dir3CaibObtenerUnidades.wsdl</wsdlUrl>
 								<wsdlUrl>${basedir}/src/main/resources/es/caib/notib/plugin/wsdl/sistra/zonaper/BackofficeFacade.wsdl</wsdlUrl>
 								<wsdlUrl>${basedir}/src/main/resources/es/caib/notib/plugin/wsdl/sistra/regtel/BackofficeFacade.wsdl</wsdlUrl>
 							</wsdlUrls>
@@ -78,7 +83,6 @@
 								<vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
 							</vmArgs>
 							<verbose>true</verbose>
-							<sourceDestDir>${basedir}/src/main/java</sourceDestDir>
 						</configuration>
 					</execution>
 				</executions>
@@ -88,15 +92,6 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
 					<skip>true</skip>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<fork>true</fork>
-					<compilerVersion>${java.version}</compilerVersion>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
 				</configuration>
 			</plugin>
 		</plugins>
