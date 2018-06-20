@@ -241,7 +241,7 @@
 		<dependency>
 			<groupId>ma.glasnost.orika</groupId>
 			<artifactId>orika-core</artifactId>
-			<version>1.4.5</version>
+			<version>${orika.version}</version>
 			<exclusions>
 				<exclusion>
 					<artifactId>slf4j-simple</artifactId>
@@ -250,6 +250,10 @@
 				<exclusion>
 					<artifactId>javassist</artifactId>
 					<groupId>javassist</groupId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
