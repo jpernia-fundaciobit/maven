@@ -1,0 +1,8 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Wed Jan 31 14:17:19 CET 2018
+http\://repo.maven.apache.org/maven2/.lastUpdated=1517404639184
+http\://repo.maven.apache.org/maven2/.error=
+https\://maven.nuxeo.org/nexus/content/groups/public/.lastUpdated=1517404638774
+@default-http\://GovernIB.github.io/maven/maven/.lastUpdated=1517404639074
+https\://maven.nuxeo.org/nexus/content/groups/public/.error=
+http\://GovernIB.github.io/maven/maven/.error=Could not transfer artifact org.fundaciobit.plugins\:plugin-signatureweb-afirma_triphase_server_lib\:jar\:sources\:1.0.1 from/to github-governib-maven-repos (http\://GovernIB.github.io/maven/maven/)\: Received fatal alert\: protocol_version
