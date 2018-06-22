@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>es.caib.scsp</groupId>
+        <artifactId>scsp-schemas-xsd-main</artifactId>
+        <version>1.0.0
+        </version>
+    </parent>
+    <groupId>es.caib.scsp</groupId>
+    <artifactId>scsp-schemas-xsd-SCDHPAJUv3</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+    <name>SCSP Schemas XSD SCDHPAJUv3</name>
+    <description>Esquemas Classes XSD</description>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.2</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>scsp-schemas-xsd-SCDHPAJUv3</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <compilerVersion>1.6</compilerVersion>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <version>0.13.3</version>
+                <executions>
+                    <execution>
+                        <id>SCDHPAJUv3_peticion</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <xjcArgs>
+<xjcArg>-XautoNameResolution</xjcArg>
+                            </xjcArgs>
+                            <schemaDirectory>src/main/resources/jaxb/SCDHPAJUv3/peticion</schemaDirectory>
+                            <schemaIncludes>
+<include>*.xsd</include>
+                            </schemaIncludes>
+                            <generateDirectory>${project.build.directory}/generated-sources/xjc-SCDHPAJUv3-peticion</generateDirectory>
+                            <episodeFile>${project.build.directory}/generated-sources/xjc/META-INF/jaxb-schemas-SCDHPAJUv3-peticion.episode</episodeFile>
+                            <bindingDirectory>src/main/resources/jaxb/SCDHPAJUv3/peticion</bindingDirectory>
+                            <bindingIncludes>
+<include>*.xjb</include>
+                            </bindingIncludes>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>SCDHPAJUv3_respuesta</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <xjcArgs>
+<xjcArg>-XautoNameResolution</xjcArg>
+                            </xjcArgs>
+                            <schemaDirectory>src/main/resources/jaxb/SCDHPAJUv3/respuesta</schemaDirectory>
+                            <schemaIncludes>
+<include>*.xsd</include>
+                            </schemaIncludes>
+                            <generateDirectory>${project.build.directory}/generated-sources/xjc-SCDHPAJUv3-respuesta</generateDirectory>
+                            <episodeFile>${project.build.directory}/generated-sources/xjc/META-INF/jaxb-schemas-SCDHPAJUv3-respuesta.episode</episodeFile>
+                            <bindingDirectory>src/main/resources/jaxb/SCDHPAJUv3/respuesta</bindingDirectory>
+                            <bindingIncludes>
+<include>*.xjb</include>
+                            </bindingIncludes>
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    <forceRegenerate>false</forceRegenerate>
+                    <strict>false</strict>
+                    <verbose>true</verbose>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
