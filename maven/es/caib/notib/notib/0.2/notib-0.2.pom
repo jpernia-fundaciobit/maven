@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>es.caib.notib</groupId>
+  <artifactId>notib</artifactId>
+  <version>0.2</version>
+  <packaging>pom</packaging>
+  <properties>
+		<notib.version>0.2</notib.version>
+		<github.global.server>github</github.global.server>
+		<spring.version>3.2.16.RELEASE</spring.version>
+		<spring-security.version>3.2.9.RELEASE</spring-security.version>
+		<spring-data-jpa.version>1.6.6.RELEASE</spring-data-jpa.version>
+		<hibernate.version>3.6.5.Final</hibernate.version>
+		<hibernate.validator.version>4.1.0.Final</hibernate.validator.version>
+		<ehcache.version>2.10.1</ehcache.version>
+		<orika.version>1.4.6</orika.version>
+		<jackson.version>2.6.3</jackson.version>
+		<regweb.version>3.0.8</regweb.version>
+		<slf4j.version>1.6.6</slf4j.version>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<modules>
+		<module>notib-client</module>
+		<module>notib-core</module>
+		<module>notib-core-api</module>
+		<module>notib-ear</module>
+		<module>notib-lib-common</module>
+		<module>notib-plugin</module>
+		<module>notib-plugin-impl</module>
+		<module>notib-war</module>
+	</modules>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8.1</version>
+				<configuration>
+					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.12</version>
+				<configuration>
+					<message>Maven artifacts for ${project.version}</message>
+					<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
+					<noJekyll>true</noJekyll>
+					<branch>refs/heads/gh-pages</branch>
+					<includes><include>**/*</include></includes>
+					<path>maven</path>
+          			<!-- github repo name -->
+					<repositoryName>maven</repositoryName>
+          			<!-- github username or organization  -->
+					<repositoryOwner>GovernIB</repositoryOwner>
+					<server>github_governib_maven</server>
+					<merge>true</merge>
+					<dryRun>false</dryRun>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<phase>deploy</phase>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<distributionManagement>
+		<repository>
+			<id>github_governib_maven</id>
+			<name>GitHub GovernIB Maven Repository</name>
+			<url>file://${project.build.directory}/mvn-repo</url>
+		</repository>
+	</distributionManagement>
+</project>
