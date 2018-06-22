@@ -183,6 +183,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jaxws-maven-plugin</artifactId>
+				<version>2.5</version>
 				<executions>
 					<execution>
 						<id>notifica2</id>
