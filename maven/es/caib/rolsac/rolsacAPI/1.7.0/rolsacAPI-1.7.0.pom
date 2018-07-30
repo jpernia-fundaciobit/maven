@@ -71,7 +71,6 @@
 		        <configuration>
 		          <!-- git commit message -->
 		          <message>Maven artifacts for ${project.version}</message> 
-		         <!-- <outputDirectory>${project.build.directory}/output</outputDirectory> -->
 			 <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> 
 		          <noJekyll>true</noJekyll>   
 		          <!-- remote branch name -->
