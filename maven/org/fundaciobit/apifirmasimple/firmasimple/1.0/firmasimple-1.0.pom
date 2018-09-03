@@ -37,9 +37,7 @@
 
   <modules>
     <module>apifirmasimple</module>
-    <!-- XYZ ZZZ 
     <module>exempleapifirmasimple-war</module>
-    -->
   </modules>
 
   <build>
