@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>    
+
+  <artifactId>pluginsib-validatesignature-esignature</artifactId>
+  <groupId>org.fundaciobit.pluginsib.validatesignature</groupId>
+  <packaging>jar</packaging>
+  <version>2.0.0</version>
+  <name>PluginsIB - Validate Signature - ESignature</name>
+
+  <parent>
+    <groupId>org.fundaciobit.pluginsib.validatesignature</groupId>  
+    <artifactId>pluginsib-validatesignature</artifactId>
+    <version>2.0.0</version>   
+  </parent>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- JBoss dependency versions -->  
+    <version.org.jboss.spec.jboss.javaee.6.0>3.0.0.Final</version.org.jboss.spec.jboss.javaee.6.0>  
+    <cxf.version>2.2.12</cxf.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.jboss.spec</groupId>
+        <artifactId>jboss-javaee-6.0</artifactId>
+        <version>${version.org.jboss.spec.jboss.javaee.6.0}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies> 
+  </dependencyManagement>
+
+  <repositories>  
+    <repository>
+      <id>java.net-m2</id>
+      <name>java.net - Maven 2</name>
+      <url>https://repository.jboss.org/nexus/content/repositories/java.net-m2</url>
+    </repository>
+
+    <repository>
+      <id>maven-nuxeo</id>
+      <name>Maven Nuxeo Repository</name>
+      <url>https://maven.nuxeo.org/nexus/content/groups/public/</url>
+      <layout>default</layout>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+      </snapshots>
+    </repository>
+
+    <!-- Requerim GENAPP i PLUGINSIB -->
+    <repository>
+      <id>github-governib-maven</id>
+      <name>GitHub GovernIB Maven Repository</name>
+      <url>https://governib.github.io/maven/maven/</url>
+    </repository>
+  </repositories>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.5.1</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+      <!--<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>2.1</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <filters>
+                <filter>
+                  <artifact>org.fundaciobit.genapp:genapp-core</artifact>
+                  <includes>
+                    <include>org/fundaciobit/genapp/common/i18n/I18N*.*</include>
+                    <include>org/fundaciobit/genapp/common/ws/Ws*Adapter.*</include>
+                  </includes>
+                </filter>
+              </filters>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>-->
+   
+      <!--XXX<plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.6</version>
+        <executions>
+          <execution>
+            <id>copy-resources</id>             
+            <phase>validate</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}/src/main/resources</outputDirectory>
+              <resources>          
+                <resource>
+                  <directory>${basedir}/../../logic/src/main/resources</directory>
+                  <includes>
+                    <include>logicmissatges_*.properties</include>
+                    <include>genapp_*.properties</include>
+                    <include>portafib_genapp_*.properties</include>
+                  </includes>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+              <overwrite>true</overwrite>
+            </configuration>            
+          </execution>
+        </executions>
+      </plugin>-->
+    </plugins>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <source>1.6</source>
+            <target>1.6</target>
+            <encoding>UTF-8</encoding>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>regenerateapi</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+        <property>                  
+          <name>regenerateapi</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <!--Java to WSDL Plugin-->
+          <!--<plugin>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-java2ws-plugin</artifactId>
+            <version>${cxf.version}</version>
+            <dependencies>
+              <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-frontend-jaxws</artifactId>
+                <version>${cxf.version}</version>
+              </dependency>
+              <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-frontend-simple</artifactId>
+                <version>${cxf.version}</version>
+              </dependency>
+            </dependencies>
+            <executions>
+              <execution>
+                <id>generate-wsdl-esignatureValidation.wsdl</id>
+                <phase>generate-sources</phase>
+                <configuration>
+                  <className>eu.europa.esig.dss.validation.SoapDocumentValidationService</className>
+                  <genWsdl>true</genWsdl>                         
+                  <verbose>true</verbose>
+                  <frontend>jaxws</frontend>
+                  <databinding>jaxb</databinding>
+                  <outputFile>${basedir}/src/main/resources/wsdl/esignatureValidation.wsdl</outputFile>
+                  <argline>-s ${basedir}/code -portname EsignatureValidationWs -address http://localhost:8080/services/soap/validation?wsdl</argline>
+                </configuration>
+                <goals>
+                  <goal>java2ws</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>-->
+
+          <!--WSDL to Java Plugin-->
+          <plugin>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-codegen-plugin</artifactId>
+            <version>${cxf.version}</version>
+            <executions>
+              <execution>
+                <id>generate-sources</id>
+                <phase>generate-sources</phase>
+                <configuration>
+                  <sourceRoot>${project.basedir}/src/main/java</sourceRoot>
+                  <defaultOptions> 
+                    <autoNameResolution>true</autoNameResolution>
+                  </defaultOptions>
+                  <wsdlOptions>
+                    <wsdlOption>
+                      <wsdl>${basedir}/src/main/resources/wsdl/esignatureValidation.wsdl</wsdl>
+                      <packagenames>
+                        <packagename>org.fundaciobit.pluginsib.validatesignature.esignature.ws</packagename>
+                      </packagenames>
+                      <!--<serviceName>SoapDocumentValidationService</serviceName>-->
+                    </wsdlOption>
+                  </wsdlOptions>
+                </configuration>
+                <goals>
+                  <goal>wsdl2java</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+  <dependencies>
+
+    <dependency>  
+      <groupId>org.jboss.ws.cxf</groupId>  
+      <artifactId>jbossws-cxf-client</artifactId>  
+      <version>4.1.1.Final</version>  
+      <scope>provided</scope>  
+    </dependency> 
+
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.2</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!--<dependency>
+      <groupId>eu.europa.ec.joinup.sd-dss</groupId>
+      <version>5.3.1</version>
+      <artifactId>dss-validation-soap-client</artifactId>
+    </dependency>-->
+
+    <dependency>
+      <groupId>javax.mail</groupId>
+      <artifactId>mailapi</artifactId>
+      <version>1.4.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.bouncycastle</groupId>
+      <artifactId>bcprov-jdk16</artifactId>
+      <version>1.46</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.bouncycastle</groupId>
+      <artifactId>bcmail-jdk16</artifactId>
+      <version>1.46</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.bouncycastle</groupId>
+      <artifactId>bctsp-jdk16</artifactId>
+      <version>1.46</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>net.java.xades</groupId>
+      <artifactId>jxades</artifactId>
+      <version>0.1.5</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.fundaciobit.pluginsib.validatesignature</groupId>
+      <artifactId>pluginsib-validatesignature-api</artifactId>
+      <version>2.0.0</version>
+    </dependency>
+
+
+  </dependencies>
+
+</project>
