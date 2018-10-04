@@ -39,6 +39,7 @@
             <artifactId>pluginsib-validatesignature-tester-ejb</artifactId>
             <groupId>org.fundaciobit.pluginsib.validatesignature</groupId>
             <version>2.0.0</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
