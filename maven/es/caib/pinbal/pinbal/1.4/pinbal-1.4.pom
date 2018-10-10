@@ -32,9 +32,9 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>pinbal-core</module>
-		<module>pinbal-webapp</module>
+		<!--module>pinbal-webapp</module-->
 		<module>pinbal-scsp</module>
-		<module>pinbal-ear</module>
+		<!--module>pinbal-ear</module-->
 		<module>pinbal-core-client</module>
 		<module>pinbal-plugins-caib</module>
 		<module>pinbal-plugins</module>
