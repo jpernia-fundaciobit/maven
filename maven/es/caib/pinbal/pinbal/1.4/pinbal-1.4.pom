@@ -3,6 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>es.caib.pinbal</groupId>
 	<artifactId>pinbal</artifactId>
+	<version>${version.project}</version>
 	<properties>
 		<spring.version>3.2.16.RELEASE</spring.version>
 		<spring-security.version>3.2.9.RELEASE</spring-security.version>
@@ -24,41 +25,28 @@
 		<xdocreport.version>1.0.3</xdocreport.version>
 		<compiler.plugin.version>3.1</compiler.plugin.version>
 		<slf4j.version>1.7.7</slf4j.version>
+		<maven.test.skip>true</maven.test.skip>
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<build.timestamp>${maven.build.timestamp}</build.timestamp>
+		<version.main>1.4</version.main>
+		<version.revision>14</version.revision>
+		<version.full>${version.main}.${version.revision}</version.full>
+		<version.project>${version.main}</version.project>
 	</properties>
-	<version>1.4</version>
 	<packaging>pom</packaging>
+	<url>https://github.com/GovernIB/pinbal</url>
 	<modules>
 		<module>pinbal-core</module>
-		<!--module>pinbal-webapp</module-->
+		<module>pinbal-webapp</module>
 		<module>pinbal-scsp</module>
-		<!--module>pinbal-ear</module-->
+		<module>pinbal-ear</module>
 		<module>pinbal-core-client</module>
 		<module>pinbal-plugins-caib</module>
 		<module>pinbal-plugins</module>
 		<module>pinbal-ws-client</module>
 	</modules>
-	<profiles>
-		<profile>
-			<id>recobriment</id>
-			<activation>
-				<activeByDefault>false</activeByDefault>
-			</activation>
-			<modules>
-				<module>pinbal-core</module>
-				<module>pinbal-webapp</module>
-				<module>pinbal-scsp</module>
-				<module>pinbal-ear</module>
-				<module>pinbal-core-client</module>
-				<module>pinbal-plugins-caib</module>
-				<module>pinbal-plugins</module>
-				<module>pinbal-rec-web</module>
-				<module>pinbal-rec-ear</module>
-			</modules>
-		</profile>
-	</profiles>
 	<build>
 		<plugins>
 			<plugin>
@@ -95,6 +83,22 @@
 						<phase>deploy</phase>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>get-the-git-infos</id>
+						<goals>
+							<goal>revision</goal>
+						</goals>
+						<phase>validate</phase>
+					</execution>
+				</executions>
+				<configuration>
+					<dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
