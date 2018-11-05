@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>es.caib.pinbal</groupId>
 		<artifactId>pinbal</artifactId>
-		<version>1.4</version>
+		<version>${version.project}</version>
 	</parent>
 	<artifactId>pinbal-plugins-caib</artifactId>
 	<dependencies>
@@ -90,17 +90,6 @@
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<configuration>
-					<skip>true</skip>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 	<repositories>
 		<repository>
 			<id>mvn-local-repo</id>
