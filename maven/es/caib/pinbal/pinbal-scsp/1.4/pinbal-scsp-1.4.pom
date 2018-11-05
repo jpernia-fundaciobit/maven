@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>es.caib.pinbal</groupId>
 		<artifactId>pinbal</artifactId>
-		<version>1.4</version>
+		<version>${version.project}</version>
 	</parent>
 	<artifactId>pinbal-scsp</artifactId>
 	<dependencies>
@@ -20,10 +20,6 @@
 				<exclusion>
 					<artifactId>xml-apis</artifactId>
 					<groupId>xml-apis</groupId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.apache.geronimo.specs</groupId>
-					<artifactId>geronimo-jta_1.1_spec</artifactId>
 				</exclusion>
 			</exclusions>
 			<scope>provided</scope>
@@ -103,10 +99,6 @@
 				</exclusion>
 				<exclusion>
 					<groupId>org.apache.geronimo.specs</groupId>
-					<artifactId>geronimo-jta_1.1_spec</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.apache.geronimo.specs</groupId>
 					<artifactId>geronimo-stax-api_1.0_spec</artifactId>
 				</exclusion>
 				<exclusion>
@@ -122,10 +114,6 @@
 			<artifactId>axis2-transport-local</artifactId>
 			<version>${axis2.version}</version>
 			<exclusions>
-				<exclusion>
-					<artifactId>geronimo-jta_1.1_spec</artifactId>
-					<groupId>org.apache.geronimo.specs</groupId>
-				</exclusion>
 				<exclusion>
 					<artifactId>xercesImpl</artifactId>
 					<groupId>xerces</groupId>
