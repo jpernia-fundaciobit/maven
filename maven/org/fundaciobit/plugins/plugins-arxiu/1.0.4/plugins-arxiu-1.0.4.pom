@@ -7,11 +7,11 @@
 		<version>1.0.0</version>
 	</parent>
 	<artifactId>plugins-arxiu</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.4</version>
 	<packaging>pom</packaging>
 	<name>FundacioBit Plugins - Arxiu Plugins</name>
 	<properties>
-		<plugin.arxiu.version>1.0.2</plugin.arxiu.version>
+		<plugin.arxiu.version>1.0.4</plugin.arxiu.version>
 		<plugins.api.version>1.0.0</plugins.api.version>
 		<slf4j.version>1.5.11</slf4j.version>
 		<maven.compiler.source>1.7</maven.compiler.source>
