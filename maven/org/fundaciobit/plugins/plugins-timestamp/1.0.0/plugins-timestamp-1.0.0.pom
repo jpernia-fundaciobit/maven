@@ -17,6 +17,8 @@
        <module>api</module>	
        <module>afirmarfc</module>
        <module>catcertrfc</module>
+       <module>cliente_tsa_rfc</module>
+       <module>afirmarfc-cliente_tsa_rfc</module>
     </modules>
 	
 	<dependencies>
