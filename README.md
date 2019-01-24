@@ -83,7 +83,7 @@ Tot projecte CAIB, desenvolupat en maven al final del pom.xml ha d'incloue aques
            <repository>
              <id>github-governib-maven-repos</id>
              <name>GitHub GovernIB Maven Repository</name>
-             <url>http://GovernIB.github.io/maven/maven/</url>
+             <url>https://governib.github.io/maven/maven/</url>
            </repository>
         </repositories>
   -->
