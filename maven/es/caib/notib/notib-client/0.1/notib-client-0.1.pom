@@ -100,5 +100,9 @@
 			<id>archiva.default</id>
 			<url>http://gforge.caib.es/archiva/repository/internal</url>
 		</repository>
+		<repository>
+			<id>mvn-local-repo</id>
+			<url>file://${basedir}/../local-repo</url>
+		</repository>
 	</repositories>
 </project>
