@@ -9,7 +9,7 @@ Per fer ús de les llibreries d'aquest repositori maven només s'ha d'incloure l
            <repository>
              <id>github-governib-maven-repos</id>
              <name>GitHub GovernIB Maven Repository</name>
-             <url>http://GovernIB.github.io/maven/maven/</url>
+             <url>https://governib.github.io/maven/maven/</url>
            </repository>
         </repositories>
 ```
