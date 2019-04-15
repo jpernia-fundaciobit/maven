@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.fundaciobit.pluginsib.validatecertificate</groupId> 
+ <artifactId>pluginsib-validatecertificate-tester-ear</artifactId>
+
+  
+  <packaging>ear</packaging>
+<version>2.0.0</version>
+  <name>PluginsIB - Validate Certificate - Validate Tester - EAR</name>
+
+  <parent>
+    <groupId>org.fundaciobit.pluginsib.validatecertificate</groupId>
+    <version>2.0.0</version>
+    <artifactId>pluginsib-validatecertificate-tester</artifactId>
+  </parent>
+
+
+  <dependencies>
+
+    <!-- Internes -->
+    <dependency>
+      <artifactId>pluginsib-validatecertificate-tester-ejb</artifactId>
+      <groupId>org.fundaciobit.pluginsib.validatecertificate</groupId>
+      <version>2.0.0</version>
+      <type>ejb</type>
+    </dependency>
+
+    <dependency>
+      <artifactId>pluginsib-validatecertificate-tester-webapp</artifactId>
+      <groupId>org.fundaciobit.pluginsib.validatecertificate</groupId>
+      <version>2.0.0</version>
+      <type>war</type>
+    </dependency>
+
+    <!-- Externes -->
+
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.2.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>1.4</version>
+    </dependency>
+
+    <!-- ============================================= -->
+    <!-- =====   PLUGINS DE VALIDATECERTIFICATE  ===== -->
+    <!-- ============================================= -->
+
+    <!-- ============ PLUGIN AFIRMA CXF ============== -->
+    <!--  
+    <dependency>
+      <groupId>org.apache.santuario</groupId>
+      <artifactId>xmlsec</artifactId>
+      <version>1.5.5</version>
+    </dependency>
+  -->
+
+    <!--  Aquesta versió elimina el packages javax/xml/crypto/* 
+          i evita errors del tipus java.lang.ClassCastException: org.apache.jcp.xml.dsig.internal.dom.DOMXMLSignatureFactory cannot be cast to javax.xml.crypto.dsig.XMLSignatureFactory"    -->
+    <dependency>
+      <groupId>org.apache.santuario</groupId>
+      <artifactId>xmlsec</artifactId>
+      <version>1.5.5-jboss-5</version>
+    </dependency>
+ 
+    
+    <dependency>
+      <groupId>org.fundaciobit.pluginsib.validatecertificate</groupId>
+      <artifactId>pluginsib-validatecertificate-afirmacxf</artifactId>
+      <version>2.0.0</version>
+
+      <exclusions> 
+        <exclusion>  
+          <groupId>xerces</groupId>
+          <artifactId>xercesImpl</artifactId>
+        </exclusion>
+
+        <exclusion>  
+          <groupId>com.sun.xml.bind</groupId>
+          <artifactId>jaxb-impl</artifactId>
+        </exclusion>
+
+        <exclusion>  
+          <groupId>xalan</groupId>
+          <artifactId>xalan</artifactId>
+        </exclusion>
+
+        <exclusion>  
+          <groupId>org.slf4j</groupId>
+          <artifactId>log4j-over-slf4j</artifactId>
+        </exclusion>
+
+        <exclusion>  
+          <groupId>org.slf4j</groupId>
+          <artifactId>jcl-over-slf4j</artifactId>
+        </exclusion>
+
+        <exclusion>  
+          <groupId>org.apache.ws.security</groupId>
+          <artifactId>wss4j</artifactId>
+        </exclusion>
+   
+        <exclusion>  
+          <groupId>org.apache.santuario</groupId>
+          <artifactId>xmlsec</artifactId>
+        </exclusion>
+
+      </exclusions> 
+      
+    
+    </dependency>
+    
+
+  </dependencies>
+
+  <build>
+    <finalName>validatecertificate</finalName>
+
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-ear-plugin</artifactId>
+        <version>2.3.2</version>
+        <!-- configuring the ear plugin -->
+        <configuration>
+
+          <displayName>Tester Web de validació de certificats</displayName>
+          <description>Tester Web de validació de certificats</description>
+
+          <archive>
+            <manifest>
+              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+            </manifest>
+            <manifestEntries>
+              <Tester-Version>${project.version}</Tester-Version>
+            </manifestEntries>
+
+
+
+          </archive>
+
+          <defaultLibBundleDir>lib</defaultLibBundleDir>
+
+          <jboss>
+            <version>5</version>
+            <loader-repository>org.fundaciobit.pluginsib:loader=validatecertificate.ear</loader-repository>
+            <loader-repository-config>java2ParentDelegation=false</loader-repository-config>
+          </jboss>
+
+          <modules>
+
+            <webModule>
+              <artifactId>pluginsib-validatecertificate-tester-webapp</artifactId>
+              <groupId>org.fundaciobit.pluginsib.validatecertificate</groupId>
+              <contextRoot>validatecertificate</contextRoot>
+            </webModule>
+
+            <ejbModule>
+              <artifactId>pluginsib-validatecertificate-tester-ejb</artifactId>
+              <groupId>org.fundaciobit.pluginsib.validatecertificate</groupId>
+            </ejbModule>
+          </modules>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jboss-maven-plugin</artifactId>
+        <version>1.5.0</version>
+        <configuration>
+          <!-- <jbossHome>D:\servers\jboss-eap-5.1\jboss-as</jbossHome>-->
+          <serverName>default</serverName>
+          <fileName>target/validatecertificate.ear</fileName> 
+        </configuration>
+      </plugin>
+    </plugins>
+
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <source>1.6</source>
+            <target>1.6</target>
+            <encoding>UTF-8</encoding>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+  </build>
+
+</project>
