@@ -14,7 +14,7 @@ Per fer ús de les llibreries d'aquest repositori maven només s'ha d'incloure l
         </repositories>
 ```
 
-Tot projecte CAIB, desenvolupat en maven al final del pom.xml ha d'incloue aquests blocs de codi xml:
+Tot projecte CAIB, desenvolupat en maven al final del pom.xml ha d'incloue aquests blocs de codi que serveixen per deployar (pujar a aquest repositori maven) els diferents jar, wars o ears dels projectes:
 
 ```
   <build>
