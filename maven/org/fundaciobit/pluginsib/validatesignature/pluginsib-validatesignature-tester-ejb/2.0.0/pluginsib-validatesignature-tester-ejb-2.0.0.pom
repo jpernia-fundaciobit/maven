@@ -7,7 +7,7 @@
   <version>2.0.0</version>
   <packaging>ejb</packaging>
 
-  <name>PluginsIB - Validate Signature - Tester - EJB</name>
+  <name>PluginsIB - Validate Signature - Validate Tester - EJB</name>
 
   <parent>
     <groupId>org.fundaciobit.pluginsib.validatesignature</groupId>
@@ -17,16 +17,16 @@
 
   <dependencies>
 
-  
 
-    <!-- ================  API ======================== -->
 
-	<dependency>
+    <!-- ================ API ======================== -->
+
+    <dependency>
       <groupId>org.fundaciobit.pluginsib.validatesignature</groupId>
       <artifactId>pluginsib-validatesignature-api</artifactId>
       <version>2.0.0</version>
     </dependency>
-    
+
     <dependency>
       <groupId>javax.ejb</groupId>
       <artifactId>ejb-api</artifactId>
@@ -92,7 +92,81 @@
         </configuration>
       </plugin>
 
+
+
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>Plugin Afirma per JBoss 5</id>
+      <activation>
+        <property>
+          <name>!jboss7</name>
+        </property>
+      </activation>
+
+<build>
+      <plugins>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>build-helper-maven-plugin</artifactId>
+          <version>1.5</version>
+          <inherited>true</inherited>
+          <executions>
+            <execution>
+              <id>add-sources</id>
+              <phase>generate-sources</phase>
+              <goals>
+                <goal>add-source</goal>
+              </goals>
+              <configuration>
+                <sources>
+                  <source>${basedir}/src/main/java_jboss5</source>
+                  <source>${basedir}/src/main/java</source>
+                </sources>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>Plugin Afirma per JBoss 7</id>
+      <activation>
+        <property>
+          <name>jboss7</name>
+        </property>
+      </activation>
+      <build>
+      <plugins>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>build-helper-maven-plugin</artifactId>
+          <version>1.5</version>
+          <inherited>true</inherited>
+          <executions>
+            <execution>
+              <id>add-sources</id>
+              <phase>generate-sources</phase>
+              <goals>
+                <goal>add-source</goal>
+              </goals>
+              <configuration>
+                <sources>
+                  <source>${basedir}/src/main/java_jboss7</source>
+                  <source>${basedir}/src/main/java</source>
+                </sources>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+      </build>
+       </profile>
+  </profiles>
+
 
 </project>
