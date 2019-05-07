@@ -180,8 +180,13 @@
   
     <resources>
       <resource>
+        <directory>${basedir}/src/main/resources</directory>
+      </resource>
+
+      <resource>
         <directory>${basedir}/../afirmacxf/src/main/resources</directory>
       </resource>
+
     </resources>
   
   
