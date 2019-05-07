@@ -134,15 +134,16 @@
     <dependency>
       <groupId>com.itextpdf</groupId>
       <artifactId>itextpdf</artifactId>
-      <version>5.4.3</version>
+      <version>5.4.5</version>
+      <!--  <version>5.4.3</version> -->
     </dependency>
-     <!-- 
+     
     <dependency>
         <groupId>org.bouncycastle</groupId>
         <artifactId>bcprov-jdk15on</artifactId>
         <version>1.51</version>
     </dependency>
-   
+   <!-- 
     <dependency>
         <groupId>org.bouncycastle</groupId>
         <artifactId>bctsp-jdk15on</artifactId>
