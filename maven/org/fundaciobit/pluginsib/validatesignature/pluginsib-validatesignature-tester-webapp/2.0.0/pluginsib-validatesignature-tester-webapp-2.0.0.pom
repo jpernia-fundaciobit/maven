@@ -7,7 +7,7 @@
     <version>2.0.0</version>
     <packaging>war</packaging>
 
-    <name> PluginsIB - Validate Signature - Tester - WebApp</name>
+    <name> PluginsIB - Validate Signature - Validate Tester - WebApp</name>
 
     <parent>
         <groupId>org.fundaciobit.pluginsib.validatesignature</groupId>
@@ -111,12 +111,14 @@
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
             <version>1.2.1</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>1.4</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- ================ TEST ======================== -->
