@@ -10,6 +10,7 @@
     <module>api</module>
     <module>afirma</module>
     <module>afirmacxf</module>
+    <module>afirmacxf-jboss7</module>
     <module>fake</module>
     <module>validatetester</module>
   </modules>
